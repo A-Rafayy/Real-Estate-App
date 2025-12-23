@@ -2,6 +2,10 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  images: {
+    domains: ['anerbktsogwtjpuzeetx.supabase.co']
+  },
+  
 };
 
 export default nextConfig;

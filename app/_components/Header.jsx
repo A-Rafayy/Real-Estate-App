@@ -9,11 +9,13 @@ import React, { useEffect } from 'react'
 
 function Header() {
     const path = usePathname();
-    const { user, isSignedIn } = useUser();
+    // const { user, isSignedIn } = useUser();
+    const { isLoaded, isSignedIn, user } = useUser();
 
     useEffect(() => {
         console.log(path);
     }, [])
+    
     return (
         <div className='p-6 px-10 flex justify-between shadow-sm fixed top-0 w-full z-10 bg-white'>
             <div className='flex gap-12 items-center'>
@@ -31,7 +33,9 @@ function Header() {
                         Post Your Ad
                     </Button>
                 </Link>
-                {isSignedIn ?
+                {
+                // isLoaded ? <div>Loading...</div> : 
+                isSignedIn ?
                     <UserButton /> :
                     <Link href={'/sign-in'}>
                         <Button variant='outline'>
